@@ -1,3 +1,4 @@
+<a name="top"></a>
 <div class="container">
   <div ng-if="::data.sc_cat_item" class="row">
 
@@ -39,7 +40,7 @@
     </div>
 
     <div class="col-sm-3">
-      <div class="panel panel-default">
+      <div class="panel panel-default fix-to-top">
 
         <div class="panel-heading">
           <h4 class="panel-title">${Items}</h4>
@@ -47,7 +48,12 @@
 
         <div ng-if="included.length > 0" class="list-group">
           <a class="list-group-item" href=""
-             ng-click="scrollTo(item)"
+             ng-click="gotoTop(item)">
+            <i class="fa fa-chevron-right m-r-sm"></i>
+            Top of form
+          </a>
+          <a class="list-group-item" href=""
+             ng-click="gotoAnchor(item)"
              ng-repeat="item in included | orderBy: 'order'">
             <i class="fa fa-chevron-right m-r-sm"></i>
             {{item.name}}
