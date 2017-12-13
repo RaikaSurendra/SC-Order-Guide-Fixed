@@ -8,3 +8,9 @@
   max-height: 150px;
   padding: 10px;
 }
+
+.fix-to-top {
+  position: fixed;
+  margin-right: 10%;
+  max-width: 280px;
+}
