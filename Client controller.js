@@ -1,4 +1,4 @@
-function ($scope, $http, nowServer, $timeout, spUtil) {
+function ($scope, $http, nowServer, $timeout, spUtil, $anchorScroll, $location) {
 	$scope.m = $scope.data.msgs;
 	$scope.evaluatingIncludes = false;
 	// field changed event comes from glideFormFactory
@@ -30,6 +30,18 @@ function ($scope, $http, nowServer, $timeout, spUtil) {
 
 	$scope.scrollToVar = function(v) {
 		spUtil.scrollTo("#" + v.sys_id);
+	}
+	
+	$scope.gotoTop = function(item) {
+		var newHash = "top";
+		$location.hash(newHash);
+		$anchorScroll();
+	}
+	
+	$scope.gotoAnchor = function(item) {
+		var newHash = item.sys_id;
+		$location.hash(newHash);
+		$anchorScroll();
 	}
 
 	// Breadcrumbs
@@ -223,6 +235,7 @@ function ($scope, $http, nowServer, $timeout, spUtil) {
 			$scope.evaluatingIncludes = false;
 		});
 	}
+	
 	if ($scope.data.sc_cat_item)
 		$timeout(evalIncludes);
 }
